@@ -1,0 +1,57 @@
+(function() {
+
+  var btcPercent = document.getElementById("btc-percent");
+  var ethPercent = document.getElementById("eth-percent");
+  var counter = 0 ;
+  var counter2 = 0 ;
+  var clock = null;
+  var clock2 = null;
+  
+  function bitcoinProgress(){
+
+    if(counter <= 28){
+      btcPercent.classList.add("dn");
+    } else {
+      btcPercent.classList.remove("dn");
+      btcPercent.classList.add("db");
+    }
+
+    if(counter <= 79){
+    //  console.log(counter++)
+      btcPercent.innerHTML = counter + " %";
+    } else {
+      clearInterval(clock);
+    }
+    
+  }
+
+  function ethereumProgress(){
+
+    if(counter2 <= 25){
+      ethPercent.classList.add("dn");
+    } else {
+      ethPercent.classList.remove("dn");
+      ethPercent.classList.add("db");
+    }
+
+    if(counter2 <= 63){
+     //console.log(counter2++)
+      ethPercent.innerHTML = counter2 + " %";
+    } else {
+      clearInterval(clock2);
+    }
+    
+  }
+  
+  clock = setInterval(bitcoinProgress, 140)
+  clock2 = setInterval(ethereumProgress, 180)
+
+
+
+})();
+
+
+
+
+
+
